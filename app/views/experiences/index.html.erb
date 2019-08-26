@@ -1,0 +1,13 @@
+
+<div class="container" style="padding-top: 16px;">
+  <div class="cards">
+  <% @experiences.each do |experience| %>
+    <div class="card-category">
+       <%= experience.title %>
+       <%= experience.description %>
+       <%= experience.price %>
+       <%= link_to "Show", experience_path(experience), class: "btn btn-flat" %>
+    </div>
+   <% end %>
+  </div>
+</div>
