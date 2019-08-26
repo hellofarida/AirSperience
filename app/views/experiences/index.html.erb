@@ -1,19 +1,24 @@
 <div class="container">
+  <div class="row">
   <% @experiences.each do |experience| %>
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src=https://dummyimage.com/300x200/fff/aaa" class="card-img" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= experience.title %></h5>
-          <p class="card-text"><%= experience.description %></p>
-          <p class="card-text"><large class="text-muted"><%= experience.price %></small></p>
-          <%= link_to "Show", experience_path(experience), class: "btn btn-flat" %>
+    <div class="col-6">
+      <div class="card mb-3" style="max-width: 540px; display: flex; ">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://dummyimage.com/300x200/fff/aaa" class="card-img" alt="...">
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= experience.title %></h5>
+              <p class="card-text"><%= experience.description %></p>
+              <p class="card-text"><large class="text-muted"><%= experience.price %></small></p>
+            </div>
+          </div>
         </div>
-          <% end %>
       </div>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
