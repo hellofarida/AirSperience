@@ -4,6 +4,4 @@ class UsersController < ApplicationController
     @bookings = current_user.bookings
     # @owner_experiences = @experiences.owner
   end
-
-
 end
