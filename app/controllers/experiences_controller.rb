@@ -26,6 +26,8 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     @experience.destroy
     redirect_to experiences_path
+  rescue ActiveRecord::InvalidForeignKey
+    redirect_to @experience, alert: "You can't delete a booked experience."
   end
 
   private
