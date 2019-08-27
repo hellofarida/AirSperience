@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     @booking.experience = @experience
     @booking.renter = current_user
     @booking.booking_price
-
     if @booking.save
       redirect_to dashboard_path
     else
