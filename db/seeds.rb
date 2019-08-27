@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-EXPEREINCE_TITLES = ["Watching the Moon Landing on Black & White TV, 1969", "Concieving world's first conjoined twin", "Purchasing the first floppy disc", "Climbing Mt. Everest", "Front row at Elvis Concert, before he died on toilet", "Woodstock", "Beatles Concert"]
+EXPEREINCE_TITLES = ["Watching the Moon Landing on Black & White TV, 1969", "Conceiving world's first conjoined twin", "Purchasing the first floppy disc", "Climbing Mt. Everest", "Front row at Elvis Concert, before he died on toilet", "Woodstock", "Beatles Concert"]
 
-DESCRIPTION_TITLES = ["A feat that will surely never be expereinced by human eyes, literally ever again.", "Feel this experience, one rarely felt by any other humans", "RARE EXPEREINCE: Feel the exhiliration without lifing a finger", "Buy this emotion before someone else does -- highly popular at this time of season."]
+DESCRIPTION_TITLES = ["A feat that will surely never be experienced by human eyes, literally ever again.", "Feel this experience, one rarely felt by any other humans", "RARE EXPERIENCE: Feel the exhilaration without lifting a finger", "Buy this emotion before someone else does -- highly popular at this time of season."]
 
 puts 'Cleaning up expereinces...'
 Experience.destroy_all
