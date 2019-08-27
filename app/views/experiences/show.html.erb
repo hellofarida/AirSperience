@@ -11,11 +11,11 @@
       <h1><%= @experience.title %></h1>
 
       <p><%= @experience.description %></p>
-      <p><%= @experience.owner  %></p>
-      <p>Created at: <%= @experience.created_at %></p>
-      <p>Last updated: <%= @experience.updated_at %></p>
+      <p><strong>Made by:</strong> <%= @experience.owner.name  %></p>
+      <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
+        <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
 
-      <p><strong>Price:</strong> <%= @experience.price %></p>
+      <p><strong>Price:</strong> $<%= @experience.price %></p>
     </div>
   </div>
 </div>
