@@ -22,10 +22,20 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def update
+    @experience = Experience.find(params[:id])
+    @experience.owner = current_user
+    if @experience.update(experience_params)
+      redirect_to experience_path
+    else
+      render 'experiences/show'
+    end
+  end
+
   def destroy
     @experience = Experience.find(params[:id])
     @experience.destroy
-    redirect_to experiences_path
+    redirect_to dashboard_path
   rescue ActiveRecord::InvalidForeignKey
     redirect_to @experience, alert: "You can't delete a booked experience."
   end
