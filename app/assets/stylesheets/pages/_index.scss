@@ -1,2 +1,37 @@
 // Import page-specific CSS files here.
 @import "home";
+
+ul {
+  list-style: none;
+}
+
+ul .list-inline li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.cards > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 1rem;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.card {
+  min-height: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 15px 10px;
+  position: relative;
+}
+
+.card-body {
+  min-height: 175px;
+  position: relative;
+
+  .card-body-bottom {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
