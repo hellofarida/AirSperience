@@ -1,4 +1,4 @@
-<div>
+<div class=".container">
     <% @experiences.each do |experience| %>
        <% if experience.owner == current_user %>
        <ul>
@@ -8,6 +8,19 @@
        </ul>
         <% end %>
   <% end  %>
+
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+          <%= booking.experience.title %>
+          <%= cl_image_tag booking.experience.photo, height: 180, width: 290, crop: :thumb %>
+          Booking starts on: <%= booking.start_on %>
+           Booking ends on: <%= booking.end_on %>
+           Booking price: <%= booking.price %>
+           <hr>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
-    user = current_user
-    @experiences = Experience.all
+    @experiences = current_user.experiences
+    @bookings = current_user.bookings
     # @owner_experiences = @experiences.owner
   end
 

@@ -18,7 +18,6 @@ class ExperiencesController < ApplicationController
     if @experience.save
       redirect_to experiences_path
     else
-
       render :new
     end
   end
