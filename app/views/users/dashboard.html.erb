@@ -1,0 +1,13 @@
+<div>
+    <% @experiences.each do |experience| %>
+       <% if experience.owner == current_user %>
+       <ul>
+         <li><%= experience.title %></li>
+         <li><%= experience.description %></li>
+         <li><%= experience.price %></li>
+       </ul>
+        <% end %>
+  <% end  %>
+</div>
+
+
