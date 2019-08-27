@@ -17,5 +17,14 @@
 
       <p><strong>Price:</strong> $<%= @experience.price %></p>
     </div>
+    <div class="card-footer">
+      <%= simple_form_for [@experience, @booking] do |f| %>
+        <%= f.input :start_on %>
+        <%= f.input :end_on %>
+
+
+        <%= f.button :submit, class: 'btn btn-dark mb-3' %>
+      <% end %>
+    </div>
   </div>
 </div>
