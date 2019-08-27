@@ -16,6 +16,14 @@
         <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
 
       <p><strong>Price:</strong> $<%= @experience.price %></p>
+
+      <hr>
+
+      <% if @experience.owner == current_user %>
+        <%= link_to "delet", experience_path(@experience),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete: #{@experience.title}?" } %>
+      <% end %>
     </div>
   </div>
 </div>
