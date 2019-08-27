@@ -5,4 +5,8 @@ class Booking < ApplicationRecord
   def past?
     end_on < Date.today
   end
+
+  def booking_price
+    self.price = (end_on - start_on) * experience.price
+  end
 end

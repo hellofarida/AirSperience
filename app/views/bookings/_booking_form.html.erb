@@ -1,0 +1,7 @@
+<%= simple_form_for [@experience, @booking] do |f| %>
+        <%= f.input :start_on, html5: true, as: :date %>
+        <%= f.input :end_on, html5: true, as: :date %>
+
+
+        <%= f.button :submit, class: 'btn btn-dark mb-3' %>
+      <% end %>

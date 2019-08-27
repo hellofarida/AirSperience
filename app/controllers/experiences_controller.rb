@@ -5,6 +5,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -17,7 +18,6 @@ class ExperiencesController < ApplicationController
     if @experience.save
       redirect_to experiences_path
     else
-
       render :new
     end
   end
