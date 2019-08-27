@@ -20,12 +20,12 @@ class ExperiencesController < ApplicationController
 
       render :new
     end
+  end
 
-    def destroy
-      @experience = Experience.find(params[:id])
-      @experience.destroy
-      redirect_to experiences_path
-    end
+  def destroy
+    @experience = Experience.find(params[:id])
+    @experience.destroy
+    redirect_to experiences_path
   end
 
   private
