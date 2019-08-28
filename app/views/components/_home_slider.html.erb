@@ -10,7 +10,10 @@
         </div>
       </div>
 
-      <p><%= link_to 'Find out more \/', '#how', class: 'text-white' %></p>
+      <p><%= link_to '#how', class: 'text-white' do %>
+          Find out more <i class="fas fa-chevron-down ml-1"></i>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
