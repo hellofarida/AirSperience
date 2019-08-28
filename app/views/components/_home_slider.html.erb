@@ -3,11 +3,8 @@
     <div class="col">
       <h1 class="text-white"><strong>You wouldn't download a memory... <br>or would you?</strong></h1>
 
-      <div class="input-group mb-5 mt-5 col-6 pl-0">
-        <input type="text" class="form-control" placeholder="Search for an experience..." aria-label="Search for an experience..." aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
-        </div>
+      <div class="mb-5 mt-5 col-6 pl-0">
+        <%= render 'shared/search_form' %>
       </div>
 
       <p><%= link_to '#how', class: 'text-white' do %>
