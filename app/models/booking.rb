@@ -7,6 +7,6 @@ class Booking < ApplicationRecord
   end
 
   def booking_price
-    self.price = (end_on - start_on) * experience.price
+    self.price = ((end_on - start_on) * experience.price).ceil
   end
 end
