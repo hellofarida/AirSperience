@@ -1,23 +1,35 @@
-<div class="container">
-  <div class="card">
-    <div class="card-body">
+<div class="container experience-show">
 
-      <% if @experience.photo? %>
-      <%= cl_image_tag @experience.photo, height: 180, width: 290, class: 'card-img-top mb-3', crop: :fill %>
-      <% else %>
-      <%= cl_image_tag @experience.picture_url, height: 180, width: 290, class: 'card-img-top mb-3', crop: :fill %>
-      <% end %>
+      <div class="row mt-5 mb-5">
+        <div class="col-6">
+          <% if @experience.photo? %>
+            <%= cl_image_tag @experience.photo, class: 'card-img-top mb-3' %>
+            <% else %>
+            <%= cl_image_tag @experience.picture_url, class: 'card-img-top mb-3' %>
+          <% end %>
+        </div>
 
-      <h1><%= @experience.title %></h1>
+        <div class="col-6">
+          <h1><%= @experience.title %></h1>
 
-      <p><%= @experience.description %></p>
-      <p><strong>Made by:</strong> <%= @experience.owner.name  %></p>
-      <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
-        <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
-      <p><strong>Price:</strong> $<%= @experience.price %></p>
-    </div>
-    <div class="card-footer">
+          <p><%= @experience.description %></p>
+
+          <% if @experience.owner.name %>
+            <p><strong>Made by:</strong> <%= @experience.owner.name  %></p>
+          <% end %>
+
+          <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
+            <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
+          <p><strong>Price per day:</strong> $<%= @experience.price %></p>
+        </div>
+
+        </div>
+      </div>
+
+
+    <div class="card mb-5">
+      <h4>Rent <%= @experience.title %></h4>
       <%= render 'bookings/booking_form' %>
     </div>
-  </div>
+
 </div>
