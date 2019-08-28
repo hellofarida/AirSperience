@@ -22,7 +22,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.owner = current_user
     if @experience.save
-      redirect_to experiences_path
+      redirect_to dashboard_path
     else
       render :new
     end
