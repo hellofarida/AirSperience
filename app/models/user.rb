@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :experiences, foreign_key: :owner_id
   has_many :bookings, foreign_key: :renter_id
 
+  has_many :favourites, foreign_key: :favoruite_id
+
   validates :email, presence: true, uniqueness: true
 end
