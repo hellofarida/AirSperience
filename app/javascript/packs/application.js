@@ -1,8 +1,11 @@
 import "bootstrap";
 
 const formSubmit = document.querySelector('.modal-submit')
+const bookingStartDate = document.querySelector('.modal-submit')
+const bookingEndDate = document.querySelector('.modal-submit')
 
 formSubmit.addEventListener("click", (event) => {
+
   event.preventDefault();
 
   // Booking form
@@ -19,9 +22,9 @@ formSubmit.addEventListener("click", (event) => {
   // Multiply by price
 
   // Modal Displays
-  const startDate = document.querySelector('#booking-start-date')
-  const endDate = document.querySelector('#booking-end-date')
-  const totalPrice = document.querySelector('#booking-total-price')
+  const startDate = document.querySelector('#booking-start-date');
+  const endDate = document.querySelector('#booking-end-date');
+  const totalPrice = document.querySelector('#booking-total-price');
 
   // Display Overrides
   startDate.innerText = "startDate";
@@ -37,6 +40,7 @@ formSubmit.addEventListener("click", (event) => {
 
 // Behaviour
 // check if both are filled
+con
 // calculate the price
 // display price
 
