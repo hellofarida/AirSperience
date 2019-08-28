@@ -1,6 +1,12 @@
 class ExperiencesController < ApplicationController
   def index
-    @experiences = Experience.all
+    if params[:title]
+      @experiences = Experience.where('title LIKE ?', "%#{params[:title].capitalize}%")
+
+    else
+      @experiences = Experience.all
+      # render 'experiences/not_found'
+    end
   end
 
   def show
@@ -43,6 +49,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title, :description, :price, :photo)
+    params.permit(:title, :description, :price, :photo)
   end
 end
