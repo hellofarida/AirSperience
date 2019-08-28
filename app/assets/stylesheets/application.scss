@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Global css
+
+a:hover {
+  text-decoration: none;
+}
