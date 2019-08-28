@@ -1,19 +1,22 @@
 </div>
+
 <%= render 'components/home_slider' %>
+
 <div class="container">
 
-  <div id="how" class="row mt-5 mb-5">
+  <div id="how" class="row mt-5 mb-5 text-center">
 
-    <div class="col-12">
+    <div class="col-12 mt-4 mb-4">
       <h2>How does it work?</h2>
     </div>
 
     <div class="col-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Search for an experience</h5>
-          <p class="card-text">Ever wondered what it's like to feed a wild boar? Let's go there.</p>
-          <a href="#" class="card-link">Browse experiences</a>
+          <%= image_tag "icons/1-search.png", alt: "", class: "mb-3" %>
+          <h5 class="card-title">Search our repository</h5>
+          <p class="card-text"> Search our colourful and diverse collection of experiences from users around the world. Ever wondered what it's like to feed a wild boar? Let's go there.</p>
+          <%= link_to 'Browse Experiences', experiences_path, class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
@@ -22,8 +25,10 @@
 
       <div class="card">
         <div class="card-body">
+          <%= image_tag "icons/2-load.png", alt: "", class: "mb-3" %>
           <h5 class="card-title">Rent the experience</h5>
           <p class="card-text">Choose how long you want to own this experience -- download it onto your BCI as many times as you want during this period (we won't judge).</p>
+          <%= link_to 'Recent Experiences', '#recent', class: 'btn btn-primary' %>
         </div>
       </div>
 
@@ -33,20 +38,53 @@
 
       <div class="card">
         <div class="card-body">
+          <%= image_tag "icons/3-superhuman.png", alt: "Become a superhuman", class: "mb-3" %>
           <h5 class="card-title">Return, rinse and repeat</h5>
-          <p class="card-text">Once your rental period is done, you can give that experience back. Search our colourful and diverse collection of experiences from users around the world.</p>
+          <p class="card-text">Feel like and be a better human after enriching your own life expereince, without lifting a finger. Once your rental period is done, you give that experience back.</p>
+          <%= link_to 'Sign up today', new_user_registration_path, class: 'btn btn-primary' %>
         </div>
       </div>
 
     </div>
+
+  </div>
+
+</div>
+
+<div class="container-fluid full-width-highlight pt-3 pb-5">
 
     <div class="col-12 text-center mt-5 bmb-5">
       <h2><strong> Your brain doesn't know the difference!</strong><br> Actualize your dreams of meeting Keanu Reeves on the Subway -- the feelings will stay long after your download your experience.</h2>
     </div>
   </div>
 
+</div>
+
+<div class="container mb-5">
+
   <div class="row">
-    <h2>Featured Memories</h2>
+    <h2 class="mb-4 col-6">Recent Experiences</h2>
+    <div class="col-6">
+      <%= link_to 'View all', experiences_path, class: 'btn btn-primary float-right' %>
+    </div>
   </div>
 
+  <div class="row">
+    <% @experiences[0..2].each do |experience| %>
+    <div class="col-4">
+      <%= link_to experience_path(experience.id) do %>
+        <div class="card-trip">
+        <%= image_tag experience.picture_url, alt: "alttext" %>
+          <div class="card-trip-infos">
+            <div>
+              <h2 class="mb-1"><%= experience.title %></h2>
+              <p><%= experience.description %></p>
+            </div>
+            <h2 class="card-trip-pricing">$<%= experience.price %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
