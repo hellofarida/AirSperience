@@ -16,7 +16,7 @@
               </div>
               <h2 class="card-trip-pricing">$<%= experience.price %></h2>
             </div>
-            <div class="d-flex justify-content-between", style="margin: 8px;">
+            <div class="d-flex justify-content-between m-3">
               <%= render 'experiences/update_experience_modal', resource: experience do %>
                 <%= simple_form_for experience do |f| %>
                   <%= f.input :title %>
@@ -63,7 +63,7 @@
               </div>
               <h2 class="card-trip-pricing">$<%= booking.price %></h2>
             </div>
-              <div class="d-flex justify-content-between float-right", style="margin: 8px;">
+              <div class="d-flex justify-content-between float-right m-3">
               <a class="btn btn-danger" href="">Delete</a>
             </div>
           </div>
