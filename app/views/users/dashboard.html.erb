@@ -56,15 +56,20 @@
             <div class="card-trip-infos">
               <div>
                 <h2 class="mb-1"><%= booking.experience.title %></h2>
-                <p><%= booking.experience.description %>
-                  Booking starts on: <%= booking.start_on %>
-                  Booking ends on: <%= booking.end_on %>
-                </p>
+                <p class="mb-1"><%= booking.experience.description %></p>
+                <p><strong>Starts on:</strong> <%= booking.start_on.strftime('%w %B, %Y') %></p>
+                <p><strong>Ends on:</strong> <%= booking.end_on.strftime('%w %B, %Y') %></p>
               </div>
-              <h2 class="card-trip-pricing">$<%= booking.price %></h2>
+
+                <h2 class="card-trip-pricing">$<%= booking.price %></h2>
+
+
             </div>
-              <div class="d-flex justify-content-between float-right m-3">
-              <a class="btn btn-danger" href="">Delete</a>
+            <div class="download">
+            <a class="btn btn-success w-100" href="#">Download Experience<i class="fas fa-cloud-download-alt ml-2"></i></a>
+            </div>
+              <div class="m-3 text-center">
+              <a class="btn btn-danger" href="#">Delete</a>
             </div>
           </div>
         </div>
