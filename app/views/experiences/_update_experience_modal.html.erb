@@ -1,10 +1,12 @@
+<% modal_id = "modal#{resource.class}#{resource.id}" %>
+
 <!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= modal_id %>">
   Edit Experience
 </button>
 
 <!-- The Modal -->
-<div class="modal fade modal-sm" id="reviewModal">
+<div class="modal fade modal-sm" id=<%= modal_id %>>
   <div class="modal-dialog">
     <div class="modal-content">
 
