@@ -1,9 +1,6 @@
 <div class="container">
   <h2 class="mt-3">All experiences (<%= @experiences.count %>)</h2>
-  <%= form_tag(experiences_path, method: :get) do %>
-    Experience: <%= text_field_tag :title, params[:title] %>
-    <%= submit_tag 'Search', name: nil %>
-  <% end %>
+  <%= render 'shared/search_form' %>
 
   <div class="error-message mt-2">
     <% if flash[:empty_search] %>

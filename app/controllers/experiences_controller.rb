@@ -1,7 +1,7 @@
 class ExperiencesController < ApplicationController
   def index
     if params[:title]
-      @experiences = Experience.where('title LIKE ?', "%#{params[:title].capitalize}%")
+      @experiences = Experience.where('title ILIKE ?', "%#{params[:title]}%")
       empty_search_message = "Sorry #{params[:title].capitalize} could not found, have a look at what else is on offer"
     else
       @experiences = Experience.all
@@ -49,6 +49,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.permit(:title, :description, :price, :photo)
+    params.require(:experience).permit(:title, :description, :price, :photo)
   end
 end
