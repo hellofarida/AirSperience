@@ -2,11 +2,11 @@ class ExperiencesController < ApplicationController
   def index
     if params[:title]
       @experiences = Experience.where('title LIKE ?', "%#{params[:title].capitalize}%")
-
+      empty_search_message = "Sorry #{params[:title].capitalize} could not found, have a look at what else is on offer"
     else
       @experiences = Experience.all
-      # render 'experiences/not_found'
     end
+    redirect_to experiences_path, flash: { empty_search: empty_search_message } if @experiences.empty?
   end
 
   def show

@@ -5,6 +5,13 @@
     <%= submit_tag 'Search', name: nil %>
   <% end %>
 
+  <div class="error-message mt-2">
+    <% if flash[:empty_search] %>
+    <p><%= flash[:empty_search] %></p>
+
+    <% end %>
+  </div>
+
   <div class="cards">
     <ul>
       <% @experiences.each do |experience| %>
@@ -28,8 +35,3 @@
       <% end %>
     </ul>
   </div>
-
-
-
-
-
