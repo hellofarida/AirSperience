@@ -14,9 +14,11 @@
 
           <p><%= @experience.description %></p>
 
-          <% if @experience.owner.name %>
-            <p><strong>Made by:</strong> <%= @experience.owner.name  %></p>
-          <% end %>
+            <% if current_user == @experience.owner %>
+              <div class="alert alert-primary">You own this experience! <%= link_to dashboard_path do %> <i class='fas fa-pencil-alt ml-2'></i> Edit via Dashboard <% end %></div>
+            <% else %>
+              <% if @experience.owner.name %><p><strong>Made by:</strong> <%= @experience.owner.name  %> <% end %> </p>
+            <% end %>
 
           <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
             <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
@@ -30,11 +32,10 @@
         </div>
       </div>
 
-
-
+  <% if current_user != @experience.owner %>
     <div class="card mb-5">
-      <h4>Rent <%= @experience.title %></h4>
       <%= render 'bookings/booking_form' %>
     </div>
+  <% end %>
 
 </div>
