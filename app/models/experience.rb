@@ -8,6 +8,10 @@ class Experience < ApplicationRecord
   validates :description, presence: true, null: false
   validates :price, presence: true, null: false, numericality: { only_integer: true }
   validates :picture_url, null: false
+  validates :photo, presence: true
+  validates :categories, presence: true
+
+  accepts_nested_attributes_for :categories
 
   mount_uploader :photo, PhotoUploader
 end

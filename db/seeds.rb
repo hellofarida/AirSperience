@@ -10,7 +10,7 @@ EXPEREINCE_TITLES = ["Watching the Moon Landing on Black & White TV, 1969", "Con
 
 DESCRIPTION_TITLES = ["A feat that will surely never be experienced by human eyes, literally ever again.", "Feel this experience, one rarely felt by any other humans", "RARE EXPERIENCE: Feel the exhilaration without lifting a finger", "Buy this emotion before someone else does -- highly popular at this time of season."]
 
-CATEGORY_NAMES = ["Adventure, High Adrenaline, Fuzzy & Nostalgic, Drugs, Religious, Dead Celebrities, Festivals & Concerts, Alive Celebrities, Historic Events, Single use events, Food, Alcohol, Knowledge, Achievement, Sports, Television"]
+CATEGORY_NAMES = ['Adventure', 'High Adrenaline', 'Fuzzy & Nostalgic', 'Drugs', 'Religious', 'Dead Celebrities', 'Festivals & Concerts', 'Alive Celebrities', 'Historic Events', 'Single use events', 'Food', 'Alcohol', 'Knowledge', 'Achievement', 'Sports', 'Television']
 
 puts "Cleaning up bookings..."
 Booking.destroy_all
@@ -57,5 +57,6 @@ CATEGORY_NAMES.each do |name|
   category = Category.create!(name: name)
   puts "Created: #{category.name}"
 end
+puts "Finished creating #{Category.count} categories!"
 puts 'Finished!'
 
