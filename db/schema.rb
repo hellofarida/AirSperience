@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_013916) do
+ActiveRecord::Schema.define(version: 2019_08_29_003807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2019_08_27_013916) do
     t.datetime "updated_at", null: false
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.bigint "experience_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizings_on_category_id"
+    t.index ["experience_id"], name: "index_categorizings_on_experience_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -56,5 +71,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_013916) do
 
   add_foreign_key "bookings", "experiences"
   add_foreign_key "bookings", "users", column: "renter_id"
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "experiences"
   add_foreign_key "experiences", "users", column: "owner_id"
 end
