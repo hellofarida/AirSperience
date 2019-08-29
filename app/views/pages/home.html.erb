@@ -60,31 +60,67 @@
 
 </div>
 
-<div class="container mb-5">
+<div class="container mb-5" id="home">
 
-  <div class="row">
-    <h2 class="mb-4 col-6">Recent Experiences</h2>
-    <div class="col-6">
-      <%= link_to 'View all', experiences_path, class: 'btn btn-primary float-right' %>
+
+  <div class="py-3">
+    <div class="row">
+      <h2 class="col-6">Recent Experiences</h2>
+      <div class="col-6">
+        <%= link_to 'View all', experiences_path, class: 'btn btn-primary float-right mb-0' %>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
-    <% @experiences[0..2].each do |experience| %>
-    <div class="col-4">
-      <%= link_to experience_path(experience.id) do %>
-        <div class="card-trip">
-        <%= image_tag experience.picture_url, alt: "alttext" %>
-          <div class="card-trip-infos">
-            <div>
-              <h2 class="mb-1"><%= experience.title %></h2>
-              <p><%= experience.description %></p>
+    <div class="row">
+      <% @recent_experiences.each do |experience| %>
+      <div class="col-4">
+        <%= link_to experience_path(experience.id) do %>
+          <div class="card-trip">
+          <%= cl_image_tag experience.photo, alt: "alttext", class:'w-100' %>
+            <div class="card-trip-infos">
+              <div>
+                <h2 class="mb-1"><%= experience.title %></h2>
+                <p><%= experience.description %></p>
+              </div>
+              <h2 class="card-trip-pricing">$<%= experience.price %></h2>
             </div>
-            <h2 class="card-trip-pricing">$<%= experience.price %></h2>
+            <div class="card-trip-footer p-2">
+              <% experience.categories.each do |category| %>
+                 <span class="p-1"><%= category.name %></span>
+               <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+      </div>
       <% end %>
     </div>
-    <% end %>
   </div>
+
+  <% @featured_categories.each do |category| %>
+    <div class="category-wrapper py-3 ">
+      <h2><%= category.name %></h2>
+      <div class="row">
+        <% category.experiences.each do |experience| %>
+          <div class="col-4">
+            <%= link_to experience_path(experience.id) do %>
+              <div class="card-trip">
+              <%= cl_image_tag experience.photo, alt: "alttext", class:'w-100' %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2 class="mb-1"><%= experience.title %></h2>
+                    <p><%= experience.description %></p>
+                  </div>
+                  <h2 class="card-trip-pricing">$<%= experience.price %></h2>
+                </div>
+                <div class="card-trip-footer p-2">
+                  <% experience.categories.each do |category| %>
+                     <span class="p-1"><%= category.name %></span>
+                   <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

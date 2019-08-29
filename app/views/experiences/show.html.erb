@@ -23,6 +23,10 @@
           <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
             <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
           <p><strong>Price per day:</strong> $<%= @experience.price %></p>
+          <p><strong>Categories:</strong> <% @experience.categories[0..-2].each do |category| %>
+                                                <%= category.name %>,
+                                              <% end %>
+                                              <%= @experience.categories.last.name unless @experience.categories.empty?%></p>
         </div>
 
         </div>
