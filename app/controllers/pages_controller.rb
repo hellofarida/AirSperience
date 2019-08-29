@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @experiences = Experience.all
+    @recent_experiences = Experience.last(3)
+    @featured_categories = Category.featured(3)
   end
+
 
 end
