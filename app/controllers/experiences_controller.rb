@@ -19,12 +19,13 @@ class ExperiencesController < ApplicationController
   end
 
   def create
+    @review = Review.new
     @experience = Experience.new(experience_params)
     @experience.owner = current_user
     if @experience.save
       redirect_to dashboard_path
     else
-      render :new
+      render :index
     end
   end
 

@@ -1,5 +1,6 @@
 class Experience < ApplicationRecord
   belongs_to :owner, class_name: 'User'
+  has_many :reviews
 
   validates :title, presence: true, uniqueness: true, null: false
   validates :description, presence: true, null: false
