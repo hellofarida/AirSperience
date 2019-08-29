@@ -3,7 +3,7 @@
     <% @experiences.each do |experience| %>
        <% if experience.owner == current_user %>
        <ul>
-         <li><h3> <%= experience.title %></h3>
+         <li><h3><%= link_to experience.title, experience_path(experience.id) %> </h3>
               <h5><%= experience.description %></h5>
               <p><%= experience.price %></p>
               <%= render 'experiences/update_experience_modal' do %>
