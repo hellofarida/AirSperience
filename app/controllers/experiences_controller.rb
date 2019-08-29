@@ -32,6 +32,7 @@ class ExperiencesController < ApplicationController
   def update
     @experience = Experience.find(params[:id])
     @experience.owner = current_user
+    @experience.categories = Category.where(id: category_ids)
     if @experience.update(experience_params)
       redirect_to experience_path
     else
