@@ -21,6 +21,7 @@ class ExperiencesController < ApplicationController
   def create
     @experience = Experience.new(experience_params)
     @experience.owner = current_user
+    @experience.categories = Category.where(id: category_ids)
     if @experience.save
       redirect_to dashboard_path
     else
@@ -31,6 +32,7 @@ class ExperiencesController < ApplicationController
   def update
     @experience = Experience.find(params[:id])
     @experience.owner = current_user
+    @experience.categories = Category.where(id: category_ids)
     if @experience.update(experience_params)
       redirect_to experience_path
     else
@@ -47,6 +49,10 @@ class ExperiencesController < ApplicationController
   end
 
   private
+
+  def category_ids
+    params[:experience][:category_ids]
+  end
 
   def experience_params
     params.require(:experience).permit(:title, :description, :price, :photo)
