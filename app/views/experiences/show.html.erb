@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container show-page-individual">
   <div class="row">
     <div class="col-xs col-sm-7 mt-4 order-xs-2">
       <p><strong>Your cortex will embody the following states upon injecting this experience - </strong>
@@ -30,25 +30,23 @@
         <%= @experience.categories.last.name unless @experience.categories.empty?%>
       </p>
 
-      <h2 class="mt-5">Reviews (<%= @experience.reviews.length %>)</h2>
-      <div class="card">
-        <div class="row">
-          <% @experience.reviews.each do |review| %>
+      <h2 class="mt-5 mb-3">Reviews (<%= @experience.reviews.length %>)</h2>
+      <div class="card pl-4 pr-4 pt-4">
+        <% @experience.reviews.each do |review| %>
+          <div class="row align-items-center pb-4">
             <div class="col-3">
-              <%# REPLACE ME %>
-              <% if @experience.photo? %><%= cl_image_tag @experience.photo, height: 100, width: 100, class: 'rounded-circle' %><% else %><%= cl_image_tag @experience.picture_url,height: 100, width: 100, class: 'rounded-circle' %><% end %>
+              <%= image_tag "user.png", class: 'img-fluid' %>
             </div>
             <div class="col-9">
               <p><%= review.content %></p>
-              <p> <i><%= review.user.name ? review.user.name : "Bob Loblaw" %></i></p>
+              <p><strong> <i><%= review.user.name ? review.user.name : "Bob Loblaw" %></i></strong></p>
               <p><% review.rating.to_i.times do |star| %>
                   <i class="fas fa-star"></i>
                 <% end %>
               </p>
             </div>
-            <hr>
-            <% end %>
-        </div>
+          </div>
+        <% end %>
         </div>
       </div>
 

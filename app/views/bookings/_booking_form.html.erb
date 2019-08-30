@@ -6,7 +6,8 @@
 
   <%= f.hidden_field :experience_price, value: @experience.price %>
   <hr>
-  <h3>Total: <span class="booking-total-price"></span></h3>
+  <h3>Total: <span class="booking-total-price">   <i class="fas fa-spinner fa-pulse"></i>
+</span></h3>
 <hr>
-  <%= f.button :submit, class: 'btn-dark mb-3 modal-submit', id: 'book-experience' %>
+  <%= f.button :submit, class: 'btn btn-primary mb-3 modal-submit w-100', id: 'book-experience' %>
 <% end %>
