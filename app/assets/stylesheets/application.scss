@@ -13,8 +13,16 @@
 @import "pages/index";
 @import "pages/show";
 
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
+
+
 // Global css
 
 a:hover {
   text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
