@@ -28,7 +28,7 @@ class ExperiencesController < ApplicationController
     @experience.owner = current_user
     @experience.categories = Category.where(id: category_ids)
     if @experience.save
-      redirect_to dashboard_path
+      redirect_to @experience
     else
       render :index
     end
