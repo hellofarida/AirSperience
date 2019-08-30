@@ -1,8 +1,12 @@
 class ExperiencesController < ApplicationController
   def index
-    if params[:title]
-      @experiences = Experience.where('title ILIKE ?', "%#{params[:title]}%")
-      empty_search_message = "Sorry #{params[:title].capitalize} could not found, have a look at what else is on offer"
+    if params[:query].present?
+      sql_query = " \
+        experiences.title @@ :query \
+        OR categories.name @@ :query \
+      "
+      @experiences = Experience.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
+      empty_search_message = "Sorry #{params[:query].capitalize} could not found, have a look at what else is on offer"
     else
       @experiences = Experience.all
     end

@@ -26,8 +26,8 @@
             </div>
             <div class="card-footer text-muted text-left">
               <%= link_to 'More info', experience_path(experience)  %>
-              <% experience.categories[0..-2].each do |category| %>
-                <span class="p-1"><%= category.name %></span>
+              <% experience.categories.each do |category| %>
+                <span class="badge badge-info p-1"><%= category.name %></span>
               <% end %>
             </div>
           </div>
