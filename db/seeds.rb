@@ -12,6 +12,10 @@ DESCRIPTION_TITLES = ["A feat that will surely never be experienced by human eye
 
 CATEGORY_NAMES = ['Adventure', 'High Adrenaline', 'Fuzzy & Nostalgic', 'Drugs', 'Religious', 'Dead Celebrities', 'Festivals & Concerts', 'Alive Celebrities', 'Historic Events', 'Single use events', 'Food', 'Alcohol', 'Knowledge', 'Achievement', 'Sports', 'Television']
 
+puts 'Cleaning up revs...'
+Review.destroy_all
+puts 'Finished cleaning up revs!'
+
 puts "Cleaning up bookings..."
 Booking.destroy_all
 puts "Finished cleaning up bookings!"

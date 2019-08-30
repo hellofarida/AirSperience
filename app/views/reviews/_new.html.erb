@@ -1,0 +1,5 @@
+<%= simple_form_for [experience, @review], url: experience_reviews_path(experience.id) do |f| %>
+    <%= f.input :content, as: :text, label: 'Your Review' %>
+    <%= f.input :rating %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
