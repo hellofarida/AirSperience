@@ -12,6 +12,7 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
+@import "pages/footer";
 
 // Google fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
@@ -26,3 +27,4 @@ a:hover {
 html {
   scroll-behavior: smooth;
 }
+
