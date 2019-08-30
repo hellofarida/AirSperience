@@ -23,7 +23,10 @@
 <div class="container show-page-individual">
   <div class="row">
     <div class="col-xs col-sm-7 mt-4 order-xs-2">
-      <p><strong>Your cortex will embody the following states upon injecting this experience - </strong>
+
+      <p><%= @experience.description %></p>
+      <hr>
+      <p><strong>Your cortex will embody the following states upon injecting this experience:<br></strong>
         <% @experience.categories[0..-2].each do |category| %>
           <%= category.name %>,
         <% end %>

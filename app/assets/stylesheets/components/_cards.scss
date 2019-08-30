@@ -22,7 +22,7 @@
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin-top: 8px;
 }
@@ -120,15 +120,25 @@ a .card-trip {
 }
 
 .card-trip-price {
-font-size: 24px;
-    position: absolute;
-    bottom: 6px;
-    right: 16px;
-    font-size: 24px;
+  font-size: 24px;
+  padding: 16px;
+
+}
+
+.card {
+  // padding: 0 !important;
+  border-radius: 10px;
+}
+
+.card-category {
+  padding: 16px;
 }
 
 h3, .h3 {
   font-size: 24px;
+  i {
+    color: #078379;
+  }
 }
 
 .card-zoom {
