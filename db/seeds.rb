@@ -44,18 +44,6 @@ puts 'Creating Users...'
 end
 puts "Finished creating #{User.count} users!"
 
-puts "Creating #{EXPEREINCE_TITLES.length} Experiences..."
-EXPEREINCE_TITLES.each do |title|
-  experience = Experience.create!(
-    title: title,
-    description: DESCRIPTION_TITLES.sample,
-    price: rand(45..400),
-    picture_url: 'https://loremflickr.com/600/400/weird',
-    owner: User.first
-  )
-  puts "Created: #{experience.title}"
-end
-
 puts "Creating categories..."
 CATEGORY_NAMES.each do |name|
   category = Category.create!(name: name)
@@ -63,4 +51,17 @@ CATEGORY_NAMES.each do |name|
 end
 puts "Finished creating #{Category.count} categories!"
 puts 'Finished!'
+
+puts "Creating #{EXPEREINCE_TITLES.length} Experiences..."
+EXPEREINCE_TITLES.each do |title|
+  experience = Experience.create!(
+    title: title,
+    description: DESCRIPTION_TITLES.sample,
+    price: rand(45..400),
+    picture_url: 'https://loremflickr.com/600/400/weird',
+    owner: User.first,
+    categories: Category.all
+  )
+  puts "Created: #{experience.title}"
+end
 
