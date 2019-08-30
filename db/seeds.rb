@@ -74,7 +74,7 @@ Experience.create!(
   title: 'Watch the Moon Landing',
   description: 'A feat that will surely never be experienced by human eyes',
   price: 501,
-  picture_url: 'exp_images/moon_landing.jpeg',
+  picture_url: 'exp_images/moon_landing.jpg',
   owner: User.first,
   categories: category_ids
   )
