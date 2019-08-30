@@ -14,6 +14,7 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    @recent_experiences = Experience.last(3)
     @experience = Experience.find(params[:id])
     @booking = Booking.new
   end
