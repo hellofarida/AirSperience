@@ -3,6 +3,10 @@
   grid-template-columns: 1fr;
   grid-gap:15px;
   flex-grow: 1;
-
 }
 
+.show-page-individual {
+  .card {
+    border-radius: 10px;
+  }
+}
