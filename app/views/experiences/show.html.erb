@@ -27,10 +27,9 @@
       <p><%= @experience.description %></p>
       <hr>
       <p><strong>Your cortex will embody the following states upon injecting this experience:<br></strong>
-        <% @experience.categories[0..-2].each do |category| %>
-          <%= category.name %>,
+        <% @experience.categories.each do |category| %>
+          <span class="badge badge-info"><%= category.name %></span>
         <% end %>
-        <%= @experience.categories.last.name unless @experience.categories.empty?%>
       </p>
 
       <h2 class="mt-5 mb-3">Reviews (<%= @experience.reviews.length %>)</h2>
