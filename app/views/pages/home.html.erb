@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-4">
-      <div class="card" style="min-height: 382px;">
+      <div class="card card-zoom" style="min-height: 382px;">
         <div class="card-body">
           <%= image_tag "icons/1-search.png", alt: "", class: "mb-3" %>
           <h5 class="card-title">Search our repository</h5>
@@ -23,7 +23,7 @@
 
     <div class="col-4">
 
-      <div class="card" style="min-height: 382px;">
+      <div class="card card-zoom" style="min-height: 382px;">
         <div class="card-body">
           <%= image_tag "icons/2-load.png", alt: "", class: "mb-3" %>
           <h5 class="card-title">Rent the experience</h5>
@@ -36,7 +36,7 @@
 
     <div class="col-4">
 
-      <div class="card" style="min-height: 382px;">
+      <div class="card card-zoom" style="min-height: 382px;">
         <div class="card-body">
           <%= image_tag "icons/3-superhuman.png", alt: "Become a superhuman", class: "mb-3" %>
           <h5 class="card-title">Return, rinse and repeat</h5>
@@ -74,8 +74,9 @@
       <% @recent_experiences.each do |experience| %>
       <div class="col-4">
         <%= link_to experience_path(experience.id) do %>
-          <div class="card-trip">
-          <%= image_tag experience.picture_url, alt: "alttext", class:'w-100' %>
+
+          <div class="card-trip card-zoom">
+          <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
             <div class="card-trip-infos">
               <div>
                 <h2 class="mb-1"><%= experience.title %></h2>
@@ -102,8 +103,9 @@
         <% category.experiences.each do |experience| %>
           <div class="col-4">
             <%= link_to experience_path(experience.id) do %>
-              <div class="card-trip">
-              <%= image_tag experience.picture_url, alt: "alttext", class:'w-100' %>
+
+              <div class="card-trip card-zoom">
+              <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
                 <div class="card-trip-infos">
                   <div>
                     <h2 class="mb-1"><%= experience.title %></h2>
