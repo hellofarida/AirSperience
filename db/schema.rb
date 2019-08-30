@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 2019_08_29_040026) do
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.bigint "experience_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categorizings_on_category_id"
+    t.index ["experience_id"], name: "index_categorizings_on_experience_id"
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -67,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_08_29_040026) do
 
   add_foreign_key "bookings", "experiences"
   add_foreign_key "bookings", "users", column: "renter_id"
+  add_foreign_key "categorizings", "categories"
+  add_foreign_key "categorizings", "experiences"
   add_foreign_key "experiences", "users", column: "owner_id"
   add_foreign_key "reviews", "experiences"
   add_foreign_key "reviews", "users"

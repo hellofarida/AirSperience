@@ -35,3 +35,9 @@ ul .list-inline li {
   }
 }
 
+#index-page {
+  .card-footer > span {
+    background: red;
+    border-radius: 5px;
+  }
+}

@@ -7,57 +7,59 @@
       <h1 class="text-white"><%= @experience.title %></h1>
     </div>
   </div>
-
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-xs col-sm-7 mt-4 order-xs-2">
-
-
-    <p><%= @experience.description %></p>
+      <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
+        <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
+      <p><strong>Price per day:</strong> $<%= @experience.price %></p>
+      <p><strong>Categories:</strong>
+        <% @experience.categories[0..-2].each do |category| %>
+          <%= category.name %>,
+        <% end %>
+        <%= @experience.categories.last.name unless @experience.categories.empty?%>
+      </p>
 
       <% if current_user == @experience.owner %>
-        <div class="alert alert-primary">You own this experience! <%= link_to dashboard_path do %> <i class='fas fa-pencil-alt ml-2'></i> Edit via Dashboard <% end %></div>
+       <%= render 'experiences/update_experience_modal', resource: @experience do %>
+        <%= render 'form', experience: @experience %>
+        <% end %>
       <% else %>
         <% if @experience.owner.name %><p><strong>Made by:</strong> <%= @experience.owner.name  %> <% end %> </p>
       <% end %>
 
-    <p><strong>Created at:</strong> <%= @experience.created_at.strftime("%b %-d, %Y") %><br>
-      <strong>Last updated:</strong> <%= @experience.updated_at.strftime("%b %-d, %Y") %></p>
-    <p><strong>Price per day:</strong> $<%= @experience.price %></p>
-
-
-    <h2 class="mt-5">Reviews (<%= @experience.reviews.length %>)</h2>
-    <div class="card">
-      <div class="row">
-        <% @experience.reviews.each do |review| %>
-          <div class="col-3">
-            <%# REPLACE ME %>
-            <% if @experience.photo? %><%= cl_image_tag @experience.photo, height: 100, width: 100, class: 'rounded-circle' %><% else %><%= cl_image_tag @experience.picture_url,height: 100, width: 100, class: 'rounded-circle' %><% end %>
-          </div>
-          <div class="col-9">
-            <p><%= review.content %></p>
-            <p> <i><%= review.user.name ? review.user.name : "Bob Loblaw" %></i></p>
-            <p><% review.rating.to_i.times do |star| %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </p>
-          </div>
-          <hr>
-          <% end %>
-      </div>
-      </div>
-    </div>
-
-    <div class="col-xs col-sm-4 align-self-start sticky-top order-xs-1" style="margin-top:-100px">
-      <% if current_user != @experience.owner %>
-        <div class="card mb-5 p-4 ">
-          <%= render 'bookings/booking_form' %>
+      <h2 class="mt-5">Reviews (<%= @experience.reviews.length %>)</h2>
+      <div class="card">
+        <div class="row">
+          <% @experience.reviews.each do |review| %>
+            <div class="col-3">
+              <%# REPLACE ME %>
+              <% if @experience.photo? %><%= cl_image_tag @experience.photo, height: 100, width: 100, class: 'rounded-circle' %><% else %><%= cl_image_tag @experience.picture_url,height: 100, width: 100, class: 'rounded-circle' %><% end %>
+            </div>
+            <div class="col-9">
+              <p><%= review.content %></p>
+              <p> <i><%= review.user.name ? review.user.name : "Bob Loblaw" %></i></p>
+              <p><% review.rating.to_i.times do |star| %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+              </p>
+            </div>
+            <hr>
+            <% end %>
         </div>
-      <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs col-sm-4 align-self-start sticky-top order-xs-1" style="margin-top:-100px">
+        <% if current_user != @experience.owner %>
+          <div class="card mb-5 p-4 ">
+            <%= render 'bookings/booking_form' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 
   <h2 class="mt-5">Most recent experiences</h2>
 
