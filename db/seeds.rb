@@ -71,7 +71,7 @@ category_ids << Category.order('RANDOM()').first
 category_ids << Category.order('RANDOM()').first
 
 Experience.create!(
-  title: 'Watching the Moon Landing on Black & White TV',
+  title: 'Watch the Moon Landing',
   description: 'A feat that will surely never be experienced by human eyes',
   price: 501,
   picture_url: 'exp_images/moon_landing.jpeg',
@@ -144,5 +144,46 @@ Experience.create!(
   categories: Category.where(id: category_ids[0])
   )
 
+Review.create!(
+  rating: 4,
+  content: "I swear I saw aliens, how did Neil missed it?",
+  experience: Experience.find_by(title: 'Watch the Moon Landing'),
+  user: User.last
+  )
+
+Review.create!(
+  rating: 3,
+  content: "I'm never having kids!!",
+  experience: Experience.find_by(title: "Conceiving world's first conjoined twin"),
+  user: User.last
+  )
+
+Review.create!(
+  rating: 5,
+  content: "Turn on, tune in & drop out..",
+  experience: Experience.find_by(title: "Woodstock, 1969"),
+  user: User.last
+  )
+
+Review.create!(
+  rating: 4,
+  content: "Long live the revolution! Down with the monarchy!!",
+  experience: Experience.find_by(title: "French revolution"),
+  user: User.last
+  )
+
+Review.create!(
+  rating: 5,
+  content: "I'm really glad I did it, my calves are the size of elephant's and now I can strangle my enemies with them",
+  experience: Experience.find_by(title: "Climbing Mt. Everest"),
+  user: User.last
+  )
+
+Review.create!(
+  rating: 5,
+  content: "My butthole has never been hotter!",
+  experience: Experience.find_by(title: "Eat 50 red chillies"),
+  user: User.last
+  )
 
 
