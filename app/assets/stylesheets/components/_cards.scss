@@ -59,10 +59,11 @@ a .card-trip {
   height: 220px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
   border-radius: 8px;
   position: relative;
+  display: flex;
+
+
 }
 
 .card-product img {
@@ -72,7 +73,7 @@ a .card-trip {
 }
 
 .card-product h2 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   margin: 0;
 }
@@ -84,22 +85,16 @@ a .card-trip {
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-top: 16px;
-  margin-bottom: 16px;
+
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
-  width: 800px;
-  position: absolute;
-  left: 240px;
-  top: 4px;
-
+  max-width: 820px;
 }
+
 .buttons {
   margin-bottom: 8px;
  }
@@ -108,10 +103,7 @@ a .card-trip {
   margin: 0;
 }
 
-.trash {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.card-product .trash {
   color: red;
   font-size: 24px;
 }
