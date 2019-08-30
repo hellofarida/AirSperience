@@ -17,7 +17,7 @@
        <% if experience.photo? %>
             <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
             <% else %>
-            <%= cl_image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+            <%= image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
             <% end %>
         <div class="card-trip-infos">
           <div>
