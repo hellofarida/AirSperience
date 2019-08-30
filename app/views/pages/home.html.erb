@@ -74,8 +74,9 @@
       <% @recent_experiences.each do |experience| %>
       <div class="col-4">
         <%= link_to experience_path(experience.id) do %>
+
           <div class="card-trip card-zoom">
-          <%= cl_image_tag experience.photo, alt: "alttext", class:'w-100' %>
+          <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
             <div class="card-trip-infos">
               <div>
                 <h2 class="mb-1"><%= experience.title %></h2>
@@ -102,8 +103,9 @@
         <% category.experiences.each do |experience| %>
           <div class="col-4">
             <%= link_to experience_path(experience.id) do %>
+
               <div class="card-trip card-zoom">
-              <%= cl_image_tag experience.photo, alt: "alttext", class:'w-100' %>
+              <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
                 <div class="card-trip-infos">
                   <div>
                     <h2 class="mb-1"><%= experience.title %></h2>
