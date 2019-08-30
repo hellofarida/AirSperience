@@ -14,7 +14,7 @@ const setPricing = (event) => {
       const seconds = (endDate.getTime() - startDate.getTime()) / 1000
       const days = Math.floor(seconds / (3600*24));
 
-      totalPrice.innerText = `Total: $${days * experiencePrice}`
+      totalPrice.innerText = ` $${days * experiencePrice}`
 
     } else {
       console.log('Both fields need to be filled in!');

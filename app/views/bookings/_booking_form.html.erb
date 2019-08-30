@@ -1,12 +1,12 @@
-<h2>Book this experience</h2>
-
+<h2><strong>$<%= @experience.price %>/day</strong></h2>
+<hr>
 <%= simple_form_for [@experience, @booking] do |f| %>
   <%= f.input :start_on, html5: true, as: :date %>
   <%= f.input :end_on, html5: true, as: :date %>
 
   <%= f.hidden_field :experience_price, value: @experience.price %>
-
-  <h3><span class="booking-total-price"></span></h3>
-
+  <hr>
+  <h3>Total: <span class="booking-total-price"></span></h3>
+<hr>
   <%= f.button :submit, class: 'btn-dark mb-3 modal-submit', id: 'book-experience' %>
 <% end %>
