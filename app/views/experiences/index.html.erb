@@ -25,14 +25,16 @@
             <p><%= experience.description %></p>
           </div>
         </div>
-        <div class="card-trip-price">
-          <h3> $<%= experience.price %>/day</h3>
-        </div>
-        <div class="card-footer text-muted text-left">
-          <% experience.categories.each do |category| %>
-            <span class="badge badge-info p-1"><%= category.name %></span>
-          <% end %>
-        </div>
+          <div class="card-category">
+            <% experience.categories.each do |category| %>
+              <span class="badge badge-info p-1"><%= category.name %></span>
+            <% end %>
+          </div>
+
+          <div class="card-trip-price">
+            <h3> $<%= experience.price %>/day</h3>
+          </div>
+
 
       </div>
     <% end %>
