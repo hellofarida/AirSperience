@@ -1,5 +1,5 @@
 <div class="container" id="index-page">
-  <h2 class="mt-3">All experiences (<%= @experiences.count %>)</h2>
+  <h2 class="mt-3">All experiences</h2>
   <%= render 'shared/search_form' %>
   <div class="error-message mt-2">
     <% if flash[:empty_search] %>
@@ -14,7 +14,7 @@
   <div class="col-lg-4 col-sm-12">
     <%= link_to experience_path(experience.id) do %>
       <div class="card-trip card-zoom mt-4">
-       <% if experience.photo? %>
+       <% if experience.photo.present? %>
             <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
             <% else %>
             <%= image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
