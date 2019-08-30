@@ -9,5 +9,7 @@ class User < ApplicationRecord
 
   has_many :favourites, foreign_key: :favoruite_id
 
+  has_many :reviews, foreign_key: :review_id
+
   validates :email, presence: true, uniqueness: true
 end

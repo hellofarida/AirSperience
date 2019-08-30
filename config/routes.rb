@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :experiences, only: [:index, :show, :new, :create, :destroy, :update] do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
+
   get "dashboard", to: "users#dashboard"
 
 end
