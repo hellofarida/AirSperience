@@ -14,4 +14,14 @@ class Experience < ApplicationRecord
   accepts_nested_attributes_for :categories
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+                  against: [:title],
+                  associated_against: {
+                    category: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -9,29 +9,26 @@
 </div>
 
 
-
-<div class="row">
+<div class="cards">
   <% @experiences.each do |experience| %>
-  <div class="col-lg-4 col-sm-12">
-    <%= link_to experience_path(experience.id) do %>
-      <div class="card-trip mt-4">
-       <% if experience.photo? %>
-            <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
-            <% else %>
-            <%= cl_image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
-            <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2 class="mb-1"><%= experience.title %></h2>
-            <p><%= experience.description %></p>
-          </div>
-        </div>
-        <div class="card-trip-price">
-          <h3> $<%= experience.price %>/day</h3>
-        </div>
+    <%= link_to experience_path(experience.id), class: 'card' do %>
+      <% if experience.photo? %>
+        <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+      <% else %>
+        <%= cl_image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+      <% end %>
+
+      <div class="card-body">
+        <h5 class="card-title"><%= experience.title %></h5>
+        <p class="card-text"><%= experience.description %></p>
+        <p class="text-muted card-body-bottom"><i class="fas fa-dollar-sign"></i><%= experience.price %></p>
+      </div>
+
+      <div class="card-footer text-muted text-left">
+        <% experience.categories.each do |category| %>
+          <span class="badge badge-info p-1"><%= category.name %></span>
+        <% end %>
       </div>
     <% end %>
-  </div>
   <% end %>
 </div>
-
