@@ -10,7 +10,7 @@ ul .list-inline li {
   margin-right: 10px;
 }
 
-.cards > ul {
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 1rem;
