@@ -76,7 +76,12 @@
         <%= link_to experience_path(experience.id) do %>
 
           <div class="card-trip card-zoom">
-          <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
+          <% if experience.photo.present? %>
+               <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+               <% else %>
+               <%= image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+               <% end %>
+
             <div class="card-trip-infos">
               <div>
                 <h2 class="mb-1"><%= experience.title %></h2>
@@ -105,7 +110,11 @@
             <%= link_to experience_path(experience.id) do %>
 
               <div class="card-trip card-zoom">
-              <%= image_tag experience.photo, alt: "alttext", class:'w-100' %>
+                <% if experience.photo.present? %>
+                     <%= cl_image_tag experience.photo, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+                     <% else %>
+                     <%= image_tag experience.picture_url, height: 180, width: 290, class: 'card-img-top', crop: :thumb %>
+                     <% end %>
                 <div class="card-trip-infos">
                   <div>
                     <h2 class="mb-1"><%= experience.title %></h2>
