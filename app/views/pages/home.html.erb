@@ -87,12 +87,14 @@
                 <h2 class="mb-1"><%= experience.title %></h2>
                 <p><%= experience.description %></p>
               </div>
-              <h2 class="card-trip-pricing">$<%= experience.price %></h2>
             </div>
-            <div class="card-trip-footer p-2">
-              <% experience.categories.each do |category| %>
-                 <span class="badge badge-info p-1"><%= category.name %></span>
-               <% end %>
+              <div class="card-category">
+                <% experience.categories.each do |category| %>
+                   <span class="badge badge-info p-1"><%= category.name %></span>
+                 <% end %>
+              </div>
+            <div class="card-trip-footer">
+              <h2 class="card-trip-pricing">$<%= experience.price %>/day</h2>
             </div>
           </div>
         <% end %>

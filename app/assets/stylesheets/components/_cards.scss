@@ -29,10 +29,11 @@
 
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-end;
+  // position: relative;
+  min-height: 160px;
 }
 
 .card-trip-infos .card-trip-user {
@@ -131,6 +132,12 @@ a .card-trip {
 }
 
 .card-category {
+  padding: 16px;
+  border-top: thin solid #078379;
+  border-bottom: thin solid #078379;
+}
+
+.card-trip-footer {
   padding: 16px;
 }
 
